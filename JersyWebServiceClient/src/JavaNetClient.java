@@ -13,7 +13,7 @@ public class JavaNetClient {
 				conn.setRequestMethod("GET");
 				BufferedReader br = new BufferedReader(new InputStreamReader((conn.getInputStream())));
 				String output;
-				System.out.println("Output from Service .Java Net... \n");
+				System.out.println("Java Net : Output from Service .. \n");
 				while ((output = br.readLine()) != null) {
 					System.out.println(output);
 				}
