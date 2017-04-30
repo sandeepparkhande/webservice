@@ -31,7 +31,6 @@ public class HelloWorldResource {
 		return Response.status(200).entity(output).build();
 
 	}
-	
 
 
 	@GET
@@ -40,6 +39,9 @@ public class HelloWorldResource {
 		String output = " GET  Message : " + msg +" Sent to Mobile "+mobile;
 		return Response.status(200).entity(output).build();
 	}
+	
+	
+	
 	@GET
 	@Path("/queryparam")
 	public Response getMsgQueryParam(@DefaultValue("Cognizant") @QueryParam("message") String msg,@QueryParam("message2") String msg2,

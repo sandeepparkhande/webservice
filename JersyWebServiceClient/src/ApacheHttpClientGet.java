@@ -15,7 +15,7 @@ public class ApacheHttpClientGet {
 	public static void main(String[] args) throws ClientProtocolException, IOException {
 	    HttpClient client = new DefaultHttpClient();
 	    
-		HttpGet getRequest = new HttpGet("http://localhost:8080/JersyWebService/rest/hello");
+		HttpGet getRequest = new HttpGet("http://localhost:8080/JersyWebService/rest/hello/RESTWebService");
 		HttpResponse response = client.execute(getRequest);
 		BufferedReader br = new BufferedReader(new InputStreamReader((response.getEntity().getContent())));
 		String output;

@@ -7,11 +7,17 @@ public class JerseyClientGet {
   public static void main(String[] args) {
 
 		Client client = Client.create();
-		WebResource webResource = client.resource("http://localhost:8080/JersyWebService/rest/hello/RESTWebService");
-		ClientResponse response = webResource.accept("text/plain").get(ClientResponse.class);
-		String output = response.getEntity(String.class);
+		WebResource webResource = client.resource("http://localhost:8080/JersyWebService/rest/employee/370941");
+		ClientResponse responseXML = webResource.accept("application/xml").get(ClientResponse.class);
+		ClientResponse responseJSON = webResource.accept("application/json").get(ClientResponse.class);
+		String outputXML = responseXML.getEntity(String.class);
+		String outputJSON = responseJSON.getEntity(String.class);
+		
 		System.out.println("Jersy Client : Output from Server .... \n");
-		System.out.println(output);
+		System.out.println("**XML** ");
+		System.out.println(outputXML);
 
+		System.out.println("**JSON**");
+		System.out.println(outputJSON);
 	}
 }

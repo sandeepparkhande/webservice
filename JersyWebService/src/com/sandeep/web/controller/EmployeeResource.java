@@ -57,10 +57,10 @@ public class EmployeeResource {
 	@Produces({ MediaType.APPLICATION_XML,MediaType.APPLICATION_JSON})
 	public Response getEmployeeById(@PathParam("employeeId") String employeeId) {
 		Employee employee = employeeMap.get(employeeId);
-	/*	if (employee==null) {
-		//throw new WebApplicationException(Response.Status.NOT_FOUND);
-		//throw new NotFoundException();
-		}*/
+		/*if (employee==null) {
+		// throw new WebApplicationException(Response.Status.NOT_FOUND);
+		  throw new ConflictException();
+		}*/ 
 		
 		if (employee==null) {
 		return Response.status(200).entity(new Error("200","Employee Not Found", "Send your queries to hr@cognizant.com")).build();
@@ -93,7 +93,7 @@ public class EmployeeResource {
 
 	@POST
 	@Path("/addEmployee")
-	@Consumes(MediaType.APPLICATION_XML)
+	@Consumes({MediaType.APPLICATION_XML ,MediaType.APPLICATION_JSON})
 	@Produces({MediaType.APPLICATION_JSON, MediaType.APPLICATION_XML})
 	public Response addEmployee(Employee employee) throws Exception{
 		employeeMap.put(employee.getEmployeeId(), employee);
